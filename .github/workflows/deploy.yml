@@ -1,18 +1,16 @@
 name: Deploy to GitHub Pages
 
 on:
-  # O deploy será disparado sempre que houver um push no branch 'main'
   push:
     branches:
       - main 
 
-# Permite que o GitHub Action escreva no branch gh-pages
 permissions:
   contents: write
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # O build e deploy rodarão em um servidor do GitHub
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
@@ -21,19 +19,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Versão LTS
+          node-version: '20' 
+          cache: 'npm' # <--- NOVO: Adiciona cache de npm (mais confiável)
           
       - name: Install Dependencies
+        # O GitHub Actions usará o cache do npm
         run: npm install
         
       - name: Build Project
-        run: npm run build # Executa o build do Vite, criando a pasta 'dist'
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # O branch gh-pages será criado/atualizado
           publish_branch: gh-pages
-          # O conteúdo da pasta 'dist' será enviado
           publish_dir: ./dist
