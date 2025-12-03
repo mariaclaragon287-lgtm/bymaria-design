@@ -1,11 +1,10 @@
 {
   "name": "bymaria-design",
   "version": "1.0.0",
- "scripts": {
+  "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
