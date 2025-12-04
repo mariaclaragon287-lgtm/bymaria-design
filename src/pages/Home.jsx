@@ -435,7 +435,7 @@ export default function BymariaDesignPortfolio() {
             <p className="text-sm text-gray-300">
               WhatsApp: <a href={waLink} className="underline">5561998577526</a>
             </p>
-            <p className="text-sm text-gray-300">Instagram: @bymariadesign</p>
+            <p className="text-sm text-gray-300">Instagram: @bymariadesignoficial</p>
             <p className="text-sm text-gray-300">
               Email:{" "}
               <a href="mailto:bymariadesign00@gmail.com" className="underline">
